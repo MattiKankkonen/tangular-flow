@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html ng-app="tangularFlow" lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>Tangular Flow</title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="app.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-		<body>
-			<h1>Welcome to test Tensor Flow!</h1>
-			<section>
+		<script src="app.module.js"></script>
+	</head>
+	<body ng-controller="TangularController">
+		<h1>Welcome to test Tensor Flow!</h1>
+		<section>
       	<p>This is the front-end for testing TensorFlow based image recognition engine available at 
-      	<a href={tensorServer}>{tensorServer} </a> </p>
+      	<a ng-href="{{tensorServer}}">{{tensorServer}}</a> </p>
         <p>The enginge is built by slightly modifying the Google's 
-        <a href="https://www.tensorflow.org/versions/r0.8/tutorials/mnist/beginners/index.html"> MNIST example </a> 
-        to process also user provided images. There is also a simple image processing to modify JPG images to match the 28x28 format that the MNIST sample uses. Then finally the whole thing has been cloudified by putting it on the Heroku server.
+        <a href="https://www.tensorflow.org/versions/r0.8/tutorials/mnist/beginners/index.html"> MNIST example </a> to process also user provided images. There is also a simple image processing to modify JPG images to match the 28x28 format that the MNIST sample uses. Then finally the whole thing has been cloudified by putting it on the Heroku server.
         The source code is available at
         <a href="http://github.com/MattiKankkonen"> GitHub </a></p>
-                    
-		</body>
-	</head>
+    </section>
+	</body>
 </html>
