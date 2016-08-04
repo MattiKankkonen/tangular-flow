@@ -1,3 +1,12 @@
 <section class="image-list">
 Below you can find some sample images that can be sent to the TensorFlow based image recognition engine
+	<ul>
+		<li ng-repeat="image in $ctrl.images" class="image-list">
+			<img ng-src="{{image.url}}" alt="{{image.caption}}"" width="280" height="280"/>
+			<p>{{image.caption}}</p>
+			<p><a class="analysis" ng-click="$ctrl.analysePicture(image)">
+				{{image.linkText === '' ? 'Click here to send this picture for analysis' : image.linkText}}
+			</a></p>
+		</li>
+	</ul>
 </section>

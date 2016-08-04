@@ -19,4 +19,13 @@ a {
 .image-list {
 	background-color: white;
 	color: black;
+	padding: 30px;
+	margin: 0px;
+	list-style-type: none;
+}
+
+.analysis {
+	background-color: #868;
+	color: #DDD;
+	padding: 15px;	
 }
