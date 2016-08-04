@@ -7,10 +7,12 @@
 		<link rel="stylesheet" href="app.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 		<script src="app.module.js"></script>
+		<script src="image-list/image-list.module.js"></script>
+		<script src="image-list/image-list.component.js"></script>
 	</head>
-	<body ng-controller="TangularController">
+	<body>
 		<h1>Welcome to test Tensor Flow!</h1>
-		<section>
+		<section ng-controller="TangularController">
       	<p>This is the front-end for testing TensorFlow based image recognition engine available at 
       	<a ng-href="{{tensorServer}}">{{tensorServer}}</a> </p>
         <p>The enginge is built by slightly modifying the Google's 
@@ -18,5 +20,6 @@
         The source code is available at
         <a href="http://github.com/MattiKankkonen"> GitHub </a></p>
     </section>
+    <image-list/>
 	</body>
 </html>
