@@ -23,6 +23,10 @@ a {
 	margin: 0px;
 	list-style-type: none;
 }
+.image-text {
+	padding: 10px;
+	font-size: 120%;
+}
 
 .analysis {
 	background-color: #868;
