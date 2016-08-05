@@ -1,1 +1,1 @@
-angular.module('imageList', ['core.tensorflow']);
+angular.module('imageList', ['core.tensorflow', 'core.images']);
