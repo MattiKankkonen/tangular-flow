@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodejs server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,11 @@
   },
   "dependencies": {
     "express": "~4.14.0"
+  },
+  "devDependencies": {
+    "karma": "~1.1.2",
+    "jasmine-core": "~2.4.1",
+    "karma-jasmine": "~1.0.2",
+    "karma-chrome-launcher": "~1.0.1"
   }
 }

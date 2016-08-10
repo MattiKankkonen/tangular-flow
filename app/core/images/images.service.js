@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('core.images')
 .factory('Images', ['$resource',
 	function($resource) {
