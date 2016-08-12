@@ -2,27 +2,22 @@
 
 describe('core.tensorflow', function() {
 
-	beforeEach(module('core.tensorflow'));
+  beforeEach(module('core.tensorflow'));
+  describe('TensorflowController', function() {
+    var $scope;
+    var Tensorflow;
+    
+    beforeEach(inject( function($rootScope, $controller, _Tensorflow_) {
+      $scope = $rootScope.$new();
+      $controller('TensorflowController', {$scope: $scope});
+      Tensorflow = _Tensorflow_;
+    }));
 
-	it('YOU NEED TO FIX ME', function() {
-			expect(true).not.toEqual(true);
-	});
-	describe('TensorflowController', function() {
-		var ctrl;
-		var Tensorflow;
-		
-		beforeEach(inject( function($componentController, _Tensorflow_) {
-			ctrl = $componentController('core.tensorflow');
-			Tensorflow = _Tensorflow_;
-		}));
-
-
-/*
-		it('Server address should be correct', 
-			function() {
-				var server = Tensorflow.getServer();
-				jasmine.addCustomEqualityTester(angular.equals);
-				expect(ctrl.serverAddress).toEqual(server);
-		}); */
-	}); 
+    it('Shown server address should match the one from service', 
+      function() {
+        var server = Tensorflow.getServer();
+        jasmine.addCustomEqualityTester(angular.equals);
+        expect($scope.serverUrl).toEqual(server);
+    }); 
+  }); 
 });

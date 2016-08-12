@@ -66,7 +66,7 @@ describe('imageList', function() {
 					analysis.result + ' with probability of '+
 					analysis.probability);
 
-				expect(ctrl.images[0].linkText).toEqual('The result is above');
+				expect(ctrl.images[0].linkText).toEqual('The result can be seen above');
 				//console.log(ctrl.images[0].caption);
 		});
 
