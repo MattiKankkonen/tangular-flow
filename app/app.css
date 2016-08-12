@@ -1,35 +1,35 @@
 h1 {
-	background-color:#848;
-	color:#FFF;
-	padding:30px;
-	margin:0px;
+    background-color:#848;
+    color:#FFF;
+    padding:30px;
+    margin:0px;
 }
 
 section {
-	background-color: #868;
-	color: #DDD;
-	padding: 20px;
-	margin: 0px;
+    background-color: #868;
+    color: #DDD;
+    padding: 20px;
+    margin: 0px;
 }
 
 a {
-	color: white;
+    color: white;
 }
 
 .image-list {
-	background-color: white;
-	color: black;
-	padding: 30px;
-	margin: 0px;
-	list-style-type: none;
+    background-color: white;
+    color: black;
+    padding: 30px;
+    margin: 0px;
+    list-style-type: none;
 }
 .image-text {
-	padding: 10px;
-	font-size: 120%;
+    padding: 10px;
+    font-size: 120%;
 }
 
 .analysis {
-	background-color: #868;
-	color: #DDD;
-	padding: 15px;	
+    background-color: #868;
+    color: #DDD;
+    padding: 15px;  
 }
