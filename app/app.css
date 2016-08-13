@@ -33,3 +33,11 @@ a {
     color: #DDD;
     padding: 15px;  
 }
+
+.image-post {
+    background-color: #868;
+    color: #DDD;
+    padding: 30px;
+    margin: 0px;
+    list-style-type: none;
+}

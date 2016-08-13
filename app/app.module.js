@@ -1,2 +1,2 @@
 'use strict';
-angular.module('tangularFlow', ['imageList', 'core.tensorflow']);
+angular.module('tangularFlow', ['imageList', 'imagePost','core.tensorflow']);
