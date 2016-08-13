@@ -50,7 +50,7 @@ describe('imageList', function() {
         
         // The analysis request and examining the results
         ctrl.analysePicture(ctrl.images[0]);
-        expect(ctrl.images[0].linkText).toEqual('Picture sent for analysis...');
+        expect(ctrl.images[0].linkText).toEqual('Picture has been sent for analysis...');
         
         $httpBackend.flush();
 
@@ -78,7 +78,7 @@ describe('imageList', function() {
         
         // The analysis request and examining the results
         ctrl.analysePicture(ctrl.images[0]);
-        expect(ctrl.images[0].linkText).toEqual('Picture sent for analysis...');
+        expect(ctrl.images[0].linkText).toEqual('Picture has been sent for analysis...');
         
         $httpBackend.flush();
 
@@ -89,5 +89,25 @@ describe('imageList', function() {
         expect(ctrl.images[0].linkText).toEqual('The result can be seen above');
         //console.log(ctrl.images[0].caption);
     });
+
+    it('handle error code from TensorFlow server',
+      function() {
+        // First we need to fetch the image list
+        $httpBackend.flush();
+
+        // Then prepare for analysis reqeust
+        $httpBackend.
+        expectGET('http://tensorshow.herokuapp.com/?json=yes&imgurl=img.jpg').
+        respond(404, '');
+        
+        // The analysis request and examining the results
+        ctrl.analysePicture(ctrl.images[0]);
+        expect(ctrl.images[0].linkText).toEqual('Picture has been sent for analysis...');
+        
+        $httpBackend.flush();
+        
+        expect(ctrl.images[0].caption).toEqual('Failed to analyse the picture');
+        expect(ctrl.images[0].linkText).toEqual('The result can be seen above');
+      });
   }); 
 });
