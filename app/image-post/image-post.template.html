@@ -4,7 +4,8 @@
   </p>
   <p>
     <img ng-src="{{$ctrl.imageUrl}}" alt={{$ctrl.imageCaption}} width="280" height="280"/>
-  </p>  
+  </p>
+  <p>{{$ctrl.analysis}}</p>  
   <form class="image-post-form">
     <input type="file" file-model="uploadFile"/>
     <input type="submit" value="Send image for evaluation" ng-click="$ctrl.postImage(uploadFile)"/>

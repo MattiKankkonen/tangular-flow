@@ -1,2 +1,2 @@
 'use strict';
-angular.module('imagePost', []);
+angular.module('imagePost', ['core.tensorflow']);
