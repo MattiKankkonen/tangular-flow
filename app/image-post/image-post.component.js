@@ -11,14 +11,14 @@ angular.module('imagePost')
     self.postImage = function(uploadFile) {
       self.imageCaption ="Now posting picture " + uploadFile.name;
       var fd = new FormData();
-      fd.append('file', uploadFile);
+      fd.append('fileName', uploadFile);
       self.http.post('/imgsrv', fd, {
         transformRequest: angular.identity,
-        headers: {'Content-Type:': undefined }
+        headers: {'Content-Type': undefined }
       })
       .success(function() {
         self.imageCaption = 'Here is the uploaded image';
-        self.imageUrl = '/img.jpg?random=' + Date.now();
+        self.imageUrl = '/images/img.jpg?random=' + Date.now();
       })
       .error(function() {
         self.imageCaption = 'Upload failed';

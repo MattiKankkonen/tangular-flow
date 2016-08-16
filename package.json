@@ -17,7 +17,10 @@
     "url": "https://github.com/MattiKankkonen/tangular-flow/issues"
   },
   "dependencies": {
-    "express": "~4.14.0"
+    "express": "~4.14.0",
+    "body-parser": "~1.15.2",
+    "path": "~0.12.7",
+    "multer": "~1.2.0"
   },
   "devDependencies": {
     "karma": "~1.1.2",
