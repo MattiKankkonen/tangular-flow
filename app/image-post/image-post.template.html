@@ -2,4 +2,11 @@
   <p>
     You can also upload here image from your own storage and see if the TensorFlow can recognise it. Also with some mobile devices it is actually possible to take a picture with the camera and upload that.
   </p>
+  <p>
+    <img ng-src="{{$ctrl.imageUrl}}" alt={{$ctrl.imageCaption}} width="280" height="280"/>
+  </p>  
+  <form class="image-post-form">
+    <input type="file" file-model="uploadFile"/>
+    <input type="submit" value="Send image for evaluation" ng-click="$ctrl.postImage(uploadFile)"/>
+  </form>
 </section>
