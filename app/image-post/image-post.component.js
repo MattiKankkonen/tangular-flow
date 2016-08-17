@@ -3,7 +3,8 @@
 angular.module('imagePost')
 .component('imagePost', {
   templateUrl: 'image-post/image-post.template.html',
-  controller: ['$http', 'Tensorflow', function ImagePostController($http, Tensorflow) {
+  controller: ['$http', 'Tensorflow', 
+  function ImagePostController($http, Tensorflow) {
     var self = this;
     self.imageCaption = "If you upload a picture it comes here";
     self.analysis = '';
@@ -16,7 +17,7 @@ angular.module('imagePost')
       self.http.post('/imgsrv', fd, {
         transformRequest: angular.identity,
         headers: {'Content-Type': undefined }
-      })
+      }) // Image uploaded now ask TensorFlow engine to analyse it
       .success(function() {
         self.imageCaption = 'Here is the uploaded image';
         self.imageUrl = '/images/img.jpg?random=' + Date.now();
@@ -25,20 +26,21 @@ angular.module('imagePost')
         // TODO: the image URL host part obviously needs to be something else i.e. resolve the host name
         self.data = Tensorflow.getResource().
           get({imgurl: 'http://localhost:3000/images/img.jpg'}, function(data) {
-          if(data.status === "valid") {
-            self.analysis = "TensorFlow says this is " + 
-            data.result + " with probability of " +
-            data.probability;
-            } else {
+            if(data.status === "valid") {
+              self.analysis = "TensorFlow says this is " + 
+              data.result + " with probability of " +
+              data.probability;
+            } else { // Internal problem with TensorFlow engine
               self.analysis = "Failed to analyse picture";
             }
-          }, function () {
+          }, function () { // TensorFlow server not responding properly
             self.analysis = "Networking error with TensorFlow engine";
           }
         );
-      })
+      }) // Couldn't upload the image
       .error(function() {
         self.imageCaption = 'Upload failed';
+        self.analysis = "Upload failed";
       });
     }
   }]
