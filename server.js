@@ -19,6 +19,12 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
+// Set some additional headers
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Cache-Control', 'no-cache');
+    next();
+});
 
 app.post('/imgsrv', upload.any(), function(req, res, next) {   
     res.status(204).end();
