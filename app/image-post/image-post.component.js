@@ -3,13 +3,14 @@
 angular.module('imagePost')
 .component('imagePost', {
   templateUrl: 'image-post/image-post.template.html',
-  controller: ['$http', 'Tensorflow', 
-  function ImagePostController($http, Tensorflow) {
+  controller: ['$http', 'Tensorflow', '$document', 
+  function ImagePostController($http, Tensorflow, $document) {
     var self = this;
     self.imageCaption = "If you upload a picture it comes here";
     self.analysis = '';
     self.http = $http;
-
+    self.myHostURL = $document[0].location.toString();
+    
     self.postImage = function(uploadFile) {
       self.imageCaption ="Now posting picture " + uploadFile.name;
       var fd = new FormData();
@@ -22,10 +23,10 @@ angular.module('imagePost')
         self.imageCaption = 'Here is the uploaded image';
         self.imageUrl = '/images/img.jpg?random=' + Date.now();
         self.analysis = 'Uploading your image to TensorFlow engine... please wait for results';
+        
         // TODO: should we prevent caching also here with ?random= !!!
-        // TODO: the image URL host part obviously needs to be something else i.e. resolve the host name
         self.data = Tensorflow.getResource().
-          get({imgurl: 'http://localhost:3000/images/img.jpg'}, function(data) {
+          get({imgurl: self.myHostURL +'/images/img.jpg'}, function(data) {
             if(data.status === "valid") {
               self.analysis = "TensorFlow says this is " + 
               data.result + " with probability of " +
